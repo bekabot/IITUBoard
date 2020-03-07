@@ -1,7 +1,11 @@
 from django.urls import path
+from .views import BoardView
 
 from . import views
 
+app_name = "board"
+
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('test/', views.index, name='index'),
+    path('board/', BoardView.as_view()),
 ]
