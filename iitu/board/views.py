@@ -2,13 +2,8 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Record
+from .models import Record, User
 from .serializers import RecordSerializer
-
-
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello, Bitch!")
 
 
 class BoardView(APIView):
@@ -24,3 +19,22 @@ class BoardView(APIView):
         if serializer.is_valid(raise_exception=True):
             record_new = serializer.save()
         return Response({"success": "Record '{}' created successfully".format(record_new.text)})
+
+
+class LoginView(APIView):
+    def post(self, request):
+        login = request.data.get('login')
+        password = request.data.get('password')
+        users = User.objects.all()
+        for user in users:
+            if user.login == login and user.password == password:
+                if user.is_active:
+                    return HttpResponse(user.toJSON())
+                else:
+                    return Response({
+                        "error": "USER_NOT_FOUND"
+                    })
+        else:
+            return Response({
+                "error": "WRONG_LOGIN_PASSWORD"
+            })
