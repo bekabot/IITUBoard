@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from uuid import uuid4
 
 from .models import Record, User
 from .serializers import RecordSerializer
@@ -32,3 +33,42 @@ class LoginView(APIView):
             })
         else:
             return JsonResponse(data[0])
+
+
+class AuthView(APIView):
+    def post(self, request):
+        login = request.data.get('login')
+        password = request.data.get('password')
+        email = request.data.get('email')
+        if email.endswith("@iitu.kz"):
+            try:
+                user = User.objects.get(login=login)
+                if not user.is_active:
+                    User.objects.filter(login=login).update(email=email)
+                    send_email_with_token(email, user.token)
+                    return Response({
+                        "message": "MAIL_SENT"
+                    })
+                else:
+                    return Response({
+                        "error": "USER_ALREADY_EXISTS"
+                    })
+            except User.DoesNotExist:
+                new_token = generate_token()
+                User.objects.create(login=login, password=password, email=email, token=new_token, is_active=False)
+                send_email_with_token(email, new_token)
+                return Response({
+                    "message": "MAIL_SENT"
+                })
+        else:
+            return Response({
+                "error": "WRONG_EMAIL"
+            })
+
+
+def generate_token():
+    return str(uuid4())
+
+
+def send_email_with_token(email, token):
+    print("gonna send to: " + email + " " + token)
