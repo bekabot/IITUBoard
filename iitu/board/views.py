@@ -83,22 +83,22 @@ def send_email_with_token(receipent_mail, token):
         host = "http://iitu-board.herokuapp.com"
 
     sender_address = os.environ.get('SMTP_SENDER')
-    try:
-        server = smtplib.SMTP('smtp.gmail.com:587')
-        server.ehlo()
-        server.starttls()
-        server.login(sender_address, os.environ.get('SMTP_PASSWORD'))
-        message_body = host + "/verify?token=" + token
+    # try:
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.ehlo()
+    server.starttls()
+    server.login(sender_address, os.environ.get('SMTP_PASSWORD'))
+    message_body = host + "/verify?token=" + token
 
-        msg = MIMEText(message_body, 'plain', 'utf-8')
-        msg['Subject'] = Header("Подтверждение почтового ящика", 'utf-8')
-        msg['From'] = sender_address
-        msg['To'] = sender_address
+    msg = MIMEText(message_body, 'plain', 'utf-8')
+    msg['Subject'] = Header("Подтверждение почтового ящика", 'utf-8')
+    msg['From'] = sender_address
+    msg['To'] = sender_address
 
-        # TODO uncomment to test on @iitu.kz mail
-        # server.sendmail(sender_address, receipent_mail, msg.as_string())
-        server.sendmail(sender_address, sender_address, msg.as_string())
-        server.quit()
+    # TODO uncomment to test on @iitu.kz mail
+    # server.sendmail(sender_address, receipent_mail, msg.as_string())
+    server.sendmail(sender_address, sender_address, msg.as_string())
+    server.quit()
 
-    except:
-        print("Email failed to send.")
+# except:
+#     print("Email failed to send.")
