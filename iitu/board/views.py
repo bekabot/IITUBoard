@@ -1,7 +1,13 @@
+import os
+import smtplib
+from email.header import Header
+from email.mime.text import MIMEText
+from uuid import uuid4
+
+from django.conf import settings
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from uuid import uuid4
 
 from .models import Record, User
 from .serializers import RecordSerializer
@@ -70,5 +76,29 @@ def generate_token():
     return str(uuid4())
 
 
-def send_email_with_token(email, token):
-    print("gonna send to: " + email + " " + token)
+def send_email_with_token(receipent_mail, token):
+    if settings.DEBUG:
+        host = "http://127.0.0.1:8000"
+    else:
+        host = "http://iitu-board.herokuapp.com"
+
+    sender_address = os.environ.get('SMTP_SENDER')
+    try:
+        server = smtplib.SMTP('smtp.gmail.com:587')
+        server.ehlo()
+        server.starttls()
+        server.login(sender_address, os.environ.get('SMTP_PASSWORD'))
+        message_body = host + "/verify?token=" + token
+
+        msg = MIMEText(message_body, 'plain', 'utf-8')
+        msg['Subject'] = Header("Подтверждение почтового ящика", 'utf-8')
+        msg['From'] = sender_address
+        msg['To'] = sender_address
+
+        # TODO uncomment to test on @iitu.kz mail
+        # server.sendmail(sender_address, receipent_mail, msg.as_string())
+        server.sendmail(sender_address, sender_address, msg.as_string())
+        server.quit()
+
+    except:
+        print("Email failed to send.")
