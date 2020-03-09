@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -25,16 +25,10 @@ class LoginView(APIView):
     def post(self, request):
         login = request.data.get('login')
         password = request.data.get('password')
-        users = User.objects.all()
-        for user in users:
-            if user.login == login and user.password == password:
-                if user.is_active:
-                    return HttpResponse(user.toJSON())
-                else:
-                    return Response({
-                        "error": "USER_NOT_FOUND"
-                    })
-        else:
+        data = User.objects.filter(login=login, password=password, is_active=True).values()
+        if len(data) == 0:
             return Response({
-                "error": "WRONG_LOGIN_PASSWORD"
+                "error": "THIS_USER_NOT_FOUND"
             })
+        else:
+            return JsonResponse(data[0])
