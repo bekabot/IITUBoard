@@ -83,7 +83,7 @@ def send_email_with_token(receipent_mail, token):
         host = "http://iitu-board.herokuapp.com"
 
     sender_address = os.environ.get('SMTP_SENDER')
-    # try:
+
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.ehlo()
     server.starttls()
@@ -99,6 +99,3 @@ def send_email_with_token(receipent_mail, token):
     # server.sendmail(sender_address, receipent_mail, msg.as_string())
     server.sendmail(sender_address, sender_address, msg.as_string())
     server.quit()
-
-# except:
-#     print("Email failed to send.")
