@@ -93,9 +93,7 @@ def send_email_with_token(receipent_mail, token):
     msg = MIMEText(message_body, 'plain', 'utf-8')
     msg['Subject'] = Header("Подтверждение почтового ящика", 'utf-8')
     msg['From'] = sender_address
-    msg['To'] = sender_address
+    msg['To'] = receipent_mail
 
-    # TODO uncomment to test on @iitu.kz mail
-    # server.sendmail(sender_address, receipent_mail, msg.as_string())
-    server.sendmail(sender_address, sender_address, msg.as_string())
+    server.sendmail(sender_address, receipent_mail, msg.as_string())
     server.quit()
