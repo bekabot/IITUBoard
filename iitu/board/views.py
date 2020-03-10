@@ -97,3 +97,17 @@ def send_email_with_token(receipent_mail, token):
 
     server.sendmail(sender_address, receipent_mail, msg.as_string())
     server.quit()
+
+
+class VerificationView(APIView):
+    def get(self, request):
+        token = request.query_params.get('token')
+        try:
+            user = User.objects.get(token=token)
+            if not user.is_active:
+                User.objects.filter(token=token).update(is_active=True)
+                return Response('Почтовый адрес успешно подтвержден')
+            else:
+                return Response('Пользователь уже существует')
+        except User.DoesNotExist:
+            return Response('Пользователь не найден')
