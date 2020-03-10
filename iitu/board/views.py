@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from uuid import uuid4
 
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -88,7 +88,7 @@ def send_email_with_token(receipent_mail, token):
     server.ehlo()
     server.starttls()
     server.login(sender_address, os.environ.get('SMTP_PASSWORD'))
-    message_body = host + "/verify?token=" + token
+    message_body = host + "/api/verify?token=" + token
 
     msg = MIMEText(message_body, 'plain', 'utf-8')
     msg['Subject'] = Header("Подтверждение почтового ящика", 'utf-8')
@@ -106,8 +106,8 @@ class VerificationView(APIView):
             user = User.objects.get(token=token)
             if not user.is_active:
                 User.objects.filter(token=token).update(is_active=True)
-                return Response('Почтовый адрес успешно подтвержден')
+                return HttpResponse("Почтовый адрес успешно подтвержден")
             else:
-                return Response('Пользователь уже существует')
+                return HttpResponse("Пользователь уже существует")
         except User.DoesNotExist:
-            return Response('Пользователь не найден')
+            return HttpResponse("Пользователь не найден")

@@ -98,6 +98,12 @@ LOGGING = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'board.renderers.UTF8CharsetJSONRenderer',
+    )
+}
+
 WSGI_APPLICATION = 'iitu.wsgi.application'
 
 # Database
