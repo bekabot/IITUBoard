@@ -4,7 +4,7 @@ from django.db import models
 class Record(models.Model):
     record_title = models.TextField(max_length=100, verbose_name="Заголовок")
     record_body = models.TextField(max_length=10000, verbose_name="Текст")
-    image1 = models.ImageField(blank=True, upload_to="static", verbose_name="Картинка1")
+    image1 = models.ImageField(blank=True, upload_to="staticfiles", verbose_name="Картинка1")
     image2 = models.ImageField(blank=True, upload_to="static", verbose_name="Картинка2")
     image3 = models.ImageField(blank=True, upload_to="static", verbose_name="Картинка3")
 
