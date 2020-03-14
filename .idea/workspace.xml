@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="">
+    <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="attempt to create static files in heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iitu/board/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iitu/iitu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/iitu/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iitu/staticfiles/test_image.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,8 +13,33 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="IITUBoard" />
+  </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
+              <folding>
+                <element signature="e#305#314#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -23,9 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>iitu.settings</find>
-      <find>logg</find>
-      <find>board_record</find>
       <find>jsonp</find>
       <find>debug</find>
       <find>if</find>
@@ -53,6 +77,9 @@
       <find>static</find>
       <find>board_user</find>
       <find>django.middleware.security.SecurityMiddleware</find>
+      <find>BASE_DIR</find>
+      <find>STATIC_ROOT</find>
+      <find>staticfiles</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -74,9 +101,9 @@
         <option value="$PROJECT_DIR$/iitu/board/urls.py" />
         <option value="$PROJECT_DIR$/iitu/iitu/urls.py" />
         <option value="$PROJECT_DIR$/iitu/board/serializers.py" />
-        <option value="$PROJECT_DIR$/iitu/board/models.py" />
-        <option value="$PROJECT_DIR$/iitu/iitu/settings.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/iitu/iitu/settings.py" />
+        <option value="$PROJECT_DIR$/iitu/board/models.py" />
       </list>
     </option>
   </component>
@@ -116,13 +143,20 @@
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
               <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
               <item name="iitu" type="462c0819:PsiDirectoryNode" />
-              <item name="iitu" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
               <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
               <item name="iitu" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
+              <item name="iitu" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
@@ -140,15 +174,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/iitu/board" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/iitu" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/iitu/board" />
       <recent name="$PROJECT_DIR$/iitu/iitu" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/iitu/static" />
+      <recent name="$PROJECT_DIR$/iitu/staticfiles" />
+      <recent name="$PROJECT_DIR$/iitu/board" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/iitu" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -356,7 +392,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584208162677</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update requirements">
+      <created>1584209688986</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584209688986</updated>
+    </task>
+    <task id="LOCAL-00024" summary="attempt to create static files in heroku">
+      <created>1584210381756</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1584210381756</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -370,19 +420,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1440" height="798" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24876674" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6804734" visible="true" weight="0.24876674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.3195266" side_tool="true" visible="true" weight="0.24876674" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40651557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.39601138" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.38526914" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.04249292" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -426,7 +477,9 @@
     <MESSAGE value="attempt to work with static files on heroku" />
     <MESSAGE value="attempt to deploy static files on heroku" />
     <MESSAGE value="use whitenoise to handle static files" />
-    <option name="LAST_COMMIT_MESSAGE" value="use whitenoise to handle static files" />
+    <MESSAGE value="update requirements" />
+    <MESSAGE value="attempt to create static files in heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempt to create static files in heroku" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py" />
@@ -604,16 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/board/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iitu/images/test_image_AfPjbzV.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -634,16 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="148" column="3" lean-forward="true" selection-start-line="148" selection-start-column="3" selection-end-line="148" selection-end-column="3" />
-          <folding>
-            <element signature="e#305#314#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iitu/iitu/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -654,17 +687,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/rest_framework/fields.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="1600" column="8" selection-start-line="1600" selection-start-column="8" selection-end-line="1600" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/board/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
+          <folding>
+            <element signature="e#305#314#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/board/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
