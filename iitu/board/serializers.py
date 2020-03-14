@@ -1,24 +1,17 @@
 from rest_framework import serializers
 
-from .models import Record, User
+from .models import Record
 
 
 class RecordSerializer(serializers.Serializer):
-    text = serializers.CharField(max_length=2000)
+    record_title = serializers.CharField(max_length=100)
+    record_body = serializers.CharField(max_length=10000)
+    image1 = serializers.ImageField(max_length=None, use_url=True, allow_null=True,
+                                    required=False)  # todo rename to eng symbols
+    image2 = serializers.ImageField(max_length=None, use_url=True, allow_null=True,
+                                    required=False)  # todo rename to eng symbols
+    image3 = serializers.ImageField(max_length=None, use_url=True, allow_null=True,
+                                    required=False)  # todo rename to eng symbols
 
     def create(self, validated_data):
         return Record.objects.create(**validated_data)
-
-#TODO not used
-class UserSerializer(serializers.Serializer):
-    class Meta:
-        model = User
-        fields = (
-            'login', 'email', 'token'
-        )
-    login = serializers.CharField(max_length=20)
-    email = serializers.CharField(max_length=30)
-    token = serializers.CharField(max_length=100)
-
-    def create(self, validated_data):
-        return User.objects.create(**validated_data)
