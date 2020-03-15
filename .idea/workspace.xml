@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="attempt to create static files in heroku">
+    <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iitu/board/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iitu/iitu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/iitu/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iitu/staticfiles/test_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iitu/board/migrations/0001_initial.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,20 +19,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="315">
+              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
-              <folding>
-                <element signature="e#305#314#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -120,7 +115,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,13 +144,14 @@
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
               <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
               <item name="iitu" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
               <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
               <item name="iitu" type="462c0819:PsiDirectoryNode" />
               <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
@@ -166,11 +161,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/iitu/static" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -406,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584210381756</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="attempt to create static files in heroku">
+      <created>1584214169365</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1584214169365</updated>
+    </task>
+    <task id="LOCAL-00026" summary="attempt to create static files in heroku">
+      <created>1584214968403</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1584214968403</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -419,12 +429,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="22" width="1440" height="798" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="794" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6804734" visible="true" weight="0.24876674" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.67990077" visible="true" weight="0.24876674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" sideWeight="0.3195266" side_tool="true" visible="true" weight="0.24876674" />
+      <window_info id="Favorites" order="2" sideWeight="0.32178217" side_tool="true" weight="0.24876674" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
@@ -433,7 +443,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.39601138" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.04249292" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.2735043" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -610,13 +620,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/board/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/board/forms.py" />
     <entry file="file://$PROJECT_DIR$/iitu/board/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -624,18 +628,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/images/Снимок_экрана_2020-03-14_в_21.24.34.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/images/Снимок_экрана_2020-03-14_в_21.24.34.png" />
     <entry file="file://$PROJECT_DIR$/iitu/board/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/images/test_image.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/iitu/board/views.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -657,9 +656,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/images/test_image_AfPjbzV.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/images/test_image_AfPjbzV.png" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -667,16 +664,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/images/test_image.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/board/migrations/0015_auto_20200314_1632.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="19" selection-start-line="19" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/images/test_image.png" />
+    <entry file="file://$PROJECT_DIR$/iitu/board/migrations/0015_auto_20200314_1632.py" />
     <entry file="file://$PROJECT_DIR$/iitu/iitu/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -684,13 +673,6 @@
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -718,23 +700,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/iitu/board/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
+        <state relative-caret-position="269">
+          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
           <folding>
             <element signature="e#305#314#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iitu/board/migrations/__init__.py">
+    <entry file="file://$PROJECT_DIR$/iitu/board/migrations/0002_auto_20200314_1910.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="315">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
