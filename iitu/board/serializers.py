@@ -5,6 +5,7 @@ from .models import Record
 
 # TODO if null is not accepted by client, try this https://bit.ly/2Wj9gEq
 class RecordSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
     record_title = serializers.CharField(max_length=200)
     record_body = serializers.CharField(max_length=10000)
     image1 = serializers.ImageField(max_length=None, use_url=True, allow_empty_file=True, required=False)

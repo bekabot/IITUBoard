@@ -19,6 +19,7 @@ class BoardView(APIView):
         serializer = RecordSerializer(records, many=True)
         return Response({"records": serializer.data})
 
+    # todo check if id gets generated after it is saved and check for user token
     def post(self, request):
         record = request.data.get('record')
 
@@ -30,9 +31,9 @@ class BoardView(APIView):
 
 class LoginView(APIView):
     def post(self, request):
-        login = request.data.get('login')
+        email = request.data.get('email')
         password = request.data.get('password')
-        data = User.objects.filter(login=login, password=password, is_active=True).values()
+        data = User.objects.filter(email=email, password=password, is_active=True).values()
         if len(data) == 0:
             return Response({
                 "error": "THIS_USER_NOT_FOUND"
@@ -43,32 +44,33 @@ class LoginView(APIView):
 
 class AuthView(APIView):
     def post(self, request):
-        login = request.data.get('login')
-        password = request.data.get('password')
+        name = request.data.get('name')
+        surname = request.data.get('surname')
         email = request.data.get('email')
+        password = request.data.get('password')
         if email.endswith("@iitu.kz"):
             try:
-                user = User.objects.get(login=login)
+                user = User.objects.get(email=email)
                 if not user.is_active:
-                    User.objects.filter(login=login).update(email=email)
-                    send_email_with_token(email, user.token)
+                    send_confirmation_mail(email, user.token)
                     return Response({
                         "message": "MAIL_SENT"
                     })
                 else:
                     return Response({
-                        "error": "USER_ALREADY_EXISTS"
+                        "message": "USER_ALREADY_EXISTS"
                     })
             except User.DoesNotExist:
                 new_token = generate_token()
-                User.objects.create(login=login, password=password, email=email, token=new_token, is_active=False)
-                send_email_with_token(email, new_token)
+                User.objects.create(name=name, surname=surname, password=password, email=email, token=new_token,
+                                    is_active=False)
+                send_confirmation_mail(email, new_token)
                 return Response({
                     "message": "MAIL_SENT"
                 })
         else:
             return Response({
-                "error": "WRONG_EMAIL"
+                "message": "WRONG_EMAIL"
             })
 
 
@@ -76,7 +78,7 @@ def generate_token():
     return str(uuid4())
 
 
-def send_email_with_token(receipent_mail, token):
+def send_confirmation_mail(receipent_mail, token):
     if settings.DEBUG:
         host = "http://127.0.0.1:8000"
     else:

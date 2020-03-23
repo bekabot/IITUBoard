@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 RECORD_TYPE_CHOICES = (
@@ -31,15 +32,23 @@ class Record(models.Model):
                                     verbose_name="Категория (только для новостей)")
 
     def __str__(self):
-        return self.record_title
+        if len(self.record_title) < 70:
+            return self.record_title
+        else:
+            return self.record_title[0: 69] + '...'
 
 
 class User(models.Model):
-    login = models.CharField(max_length=20, verbose_name="Логин")
-    password = models.CharField(max_length=30, verbose_name="Пароль")
+    name = models.CharField(max_length=20, verbose_name="Имя")
+    surname = models.CharField(max_length=20, verbose_name="Фамилия")
+    password = models.CharField(max_length=64)
     email = models.CharField(max_length=30, verbose_name="Email")
-    token = models.CharField(max_length=100, verbose_name="Токен", default='')
+    token = models.CharField(max_length=100, default='')
     is_active = models.BooleanField(verbose_name="Активный")
 
     def __str__(self):
-        return self.login
+        return self.name + ' ' + self.surname
+
+
+class UserAdmin(admin.ModelAdmin):
+    exclude = ('password', "token", "email", "login")
