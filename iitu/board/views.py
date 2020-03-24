@@ -1,11 +1,13 @@
 import os
 import smtplib
+import hashlib
 from email.header import Header
 from email.mime.text import MIMEText
 from uuid import uuid4
 
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
+from django.utils.crypto import get_random_string
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -121,6 +123,22 @@ class VerificationView(APIView):
 class RestoreView(APIView):
     def post(self, request):
         email = request.data.get('email')
-        return Response({
-            "error": email
-        })
+        try:
+            user = User.objects.get(email=email)
+            if not user.is_active:
+                return Response({
+                    "message": "USER_NOT_ACTIV"
+                })
+            else:
+                new_password = get_random_string(10)
+                send_mail(email, "Ваш новый пароль - " + new_password, "Новый пароль IITU Connect")
+                hashed_password = hashlib.sha256(new_password.encode('utf-8')).hexdigest()
+                User.objects.filter(email=email).update(password=hashed_password)
+
+                return Response({
+                    "message": "PASSWORD_SENT"
+                })
+        except User.DoesNotExist:
+            return Response({
+                "message": "MAIL_NOT_FOUND"
+            })
