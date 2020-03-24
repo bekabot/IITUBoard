@@ -48,11 +48,19 @@ class AuthView(APIView):
         surname = request.data.get('surname')
         email = request.data.get('email')
         password = request.data.get('password')
+        if settings.DEBUG:
+            host = "http://127.0.0.1:8000"
+        else:
+            host = "http://iitu-board.herokuapp.com"
+
+        mail_header = "Подтверждение почтового ящика"
+
         if email.endswith("@iitu.kz"):
             try:
                 user = User.objects.get(email=email)
                 if not user.is_active:
-                    send_confirmation_mail(email, user.token)
+                    message_body = host + "/api/verify?token=" + user.token
+                    send_mail(email, message_body, mail_header)
                     return Response({
                         "message": "MAIL_SENT"
                     })
@@ -64,7 +72,8 @@ class AuthView(APIView):
                 new_token = generate_token()
                 User.objects.create(name=name, surname=surname, password=password, email=email, token=new_token,
                                     is_active=False)
-                send_confirmation_mail(email, new_token)
+                message_body = host + "/api/verify?token=" + new_token
+                send_mail(email, message_body, mail_header)
                 return Response({
                     "message": "MAIL_SENT"
                 })
@@ -78,22 +87,16 @@ def generate_token():
     return str(uuid4())
 
 
-def send_confirmation_mail(receipent_mail, token):
-    if settings.DEBUG:
-        host = "http://127.0.0.1:8000"
-    else:
-        host = "http://iitu-board.herokuapp.com"
-
+def send_mail(receipent_mail, message_body, header_title):
     sender_address = os.environ.get('SMTP_SENDER')
 
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.ehlo()
     server.starttls()
     server.login(sender_address, os.environ.get('SMTP_PASSWORD'))
-    message_body = host + "/api/verify?token=" + token
 
     msg = MIMEText(message_body, 'plain', 'utf-8')
-    msg['Subject'] = Header("Подтверждение почтового ящика", 'utf-8')
+    msg['Subject'] = Header(header_title, 'utf-8')
     msg['From'] = sender_address
     msg['To'] = receipent_mail
 
@@ -113,3 +116,11 @@ class VerificationView(APIView):
                 return HttpResponse("Пользователь уже существует")
         except User.DoesNotExist:
             return HttpResponse("Пользователь не найден")
+
+
+class RestoreView(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        return Response({
+            "error": email
+        })
