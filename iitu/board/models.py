@@ -51,4 +51,4 @@ class User(models.Model):
 
 
 class UserAdmin(admin.ModelAdmin):
-    exclude = ('password', "token", "email", "login")
+    exclude = ('password', "token")

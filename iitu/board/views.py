@@ -1,6 +1,6 @@
+import hashlib
 import os
 import smtplib
-import hashlib
 from email.header import Header
 from email.mime.text import MIMEText
 from uuid import uuid4
@@ -74,7 +74,7 @@ class AuthView(APIView):
                 new_token = generate_token()
                 User.objects.create(name=name, surname=surname, password=password, email=email, token=new_token,
                                     is_active=False)
-                message_body = host + "/api/verify?token=" + new_token
+                message_body = "Для активации аккаунта пройдите по ссылке:\n" + host + "/api/verify?token=" + new_token
                 send_mail(email, message_body, mail_header)
                 return Response({
                     "message": "MAIL_SENT"
