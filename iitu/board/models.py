@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.db import models
+from django.db.models import signals
+from django.dispatch import receiver
 
 RECORD_TYPE_CHOICES = (
     ('news', 'Новость'),
@@ -52,3 +54,9 @@ class User(models.Model):
 
 class UserAdmin(admin.ModelAdmin):
     exclude = ('password', "token")
+
+
+@receiver(signals.post_save, sender=Record)
+def create_record(sender, instance, created, **kwargs):
+    if created:
+        print("New record created " + instance.record_title)
