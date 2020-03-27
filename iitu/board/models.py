@@ -1,7 +1,10 @@
+import os
+
 from django.contrib import admin
 from django.db import models
 from django.db.models import signals
 from django.dispatch import receiver
+from pyfcm import FCMNotification
 
 RECORD_TYPE_CHOICES = (
     ('news', 'Новость'),
@@ -59,4 +62,12 @@ class UserAdmin(admin.ModelAdmin):
 @receiver(signals.post_save, sender=Record)
 def create_record(sender, instance, created, **kwargs):
     if created:
-        print("New record created " + instance.record_title)
+        push_service = FCMNotification(api_key=os.getenv('FCM_API_KEY'))
+
+        # todo test device
+        registration_id = "c0c_sqnxTxi21uj1Gznp-X:APA91bEO0ZZnsMadSidIwaoha5wl3s6vs-CmQTNuMp_j4lEXOLZZO8FvtoLxohrxJ4F3VwLZH_cz3o6Q57g0J94rYyLMiVU20Jrw5xEtSHnLi9i6yhei7oPPz1LTrhoZZT4yr79cOKeb"
+        message_title = "IITUBoard bitch!"
+        message_body = "New record created " + instance.record_title
+        result = push_service.notify_single_device(registration_id=registration_id, message_title=message_title,
+                                                   message_body=message_body)
+        print(result)
