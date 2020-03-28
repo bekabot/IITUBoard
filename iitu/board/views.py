@@ -21,7 +21,8 @@ class BoardView(APIView):
         serializer = RecordSerializer(records, many=True)
         return Response({"records": serializer.data})
 
-    # todo check if id gets generated after it is saved and check for user token
+    # TODO check if id gets generated after it is saved and check for user token
+    # TODO if null is not accepted by client, try this https://bit.ly/2Wj9gEq
     def post(self, request):
         record = request.data.get('record')
 

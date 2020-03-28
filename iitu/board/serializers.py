@@ -3,7 +3,6 @@ from rest_framework import serializers
 from .models import Record
 
 
-# TODO if null is not accepted by client, try this https://bit.ly/2Wj9gEq
 class RecordSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     record_title = serializers.CharField(max_length=200)

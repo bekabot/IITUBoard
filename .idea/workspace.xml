@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iitu/board/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iitu/board/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iitu/board/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+            <state relative-caret-position="448">
+              <caret line="91" column="38" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -41,8 +39,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>document_root</find>
-      <find>BASE</find>
       <find>S</find>
       <find>STATIC_R</find>
       <find>STATICFILES_DIRS</find>
@@ -71,6 +67,8 @@
       <find>AuthenticationError</find>
       <find>os.ge</find>
       <find>create</find>
+      <find>multiple_dev</find>
+      <find>record_title</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,7 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,31 +127,13 @@
             </path>
             <path>
               <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
-              <item name="iitu" type="462c0819:PsiDirectoryNode" />
-              <item name="board" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
-              <item name="iitu" type="462c0819:PsiDirectoryNode" />
-              <item name="board" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IITUBoard" type="462c0819:PsiDirectoryNode" />
-              <item name="iitu" type="462c0819:PsiDirectoryNode" />
-              <item name="iitu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IITUBoard" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -488,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585333645970</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="receieving token on login &amp; fcm token model created &amp; send data message">
+      <created>1585398455625</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1585398455625</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -514,8 +500,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.4002849" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.2820513" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.074074075" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.71794873" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.123931624" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.65099716" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -523,8 +509,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5714286" visible="true" weight="0.24876674" />
-      <window_info id="Structure" order="1" sideWeight="0.4301887" side_tool="true" visible="true" weight="0.24876674" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5714286" visible="true" weight="0.24876674" />
+      <window_info id="Structure" order="1" sideWeight="0.4301887" side_tool="true" weight="0.24876674" />
       <window_info id="Favorites" order="2" sideWeight="0.32178217" side_tool="true" weight="0.24876674" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32763532" />
@@ -532,9 +518,9 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40651557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.39601138" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32763532" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.6210826" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.4002849" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.2820513" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" weight="0.074074075" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.65099716" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -583,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="login method added" />
     <MESSAGE value="login method redesigned &amp; DEBUG os env var introduced" />
     <MESSAGE value="auth method setup" />
     <MESSAGE value="send verification link to email" />
@@ -608,7 +593,8 @@
     <MESSAGE value="migrations init file created" />
     <MESSAGE value="post_save signal configured" />
     <MESSAGE value="pyfcm notifications setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="pyfcm notifications setup" />
+    <MESSAGE value="receieving token on login &amp; fcm token model created &amp; send data message" />
+    <option name="LAST_COMMIT_MESSAGE" value="receieving token on login &amp; fcm token model created &amp; send data message" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py" />
@@ -877,13 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/pyfcm/fcm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2563">
-          <caret line="314" column="8" selection-start-line="314" selection-start-column="8" selection-end-line="314" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iitu/board/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -911,10 +890,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/pyfcm/fcm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="199" column="51" lean-forward="true" selection-start-line="198" selection-start-column="32" selection-end-line="199" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+        <state relative-caret-position="448">
+          <caret line="91" column="38" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

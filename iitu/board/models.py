@@ -59,7 +59,6 @@ class UserAdmin(admin.ModelAdmin):
     exclude = ('password', "token")
 
 
-# todo set up proper title and message (consider its length) and send id
 @receiver(signals.post_save, sender=Record)
 def create_record(sender, instance, created, **kwargs):
     if created:
@@ -67,14 +66,25 @@ def create_record(sender, instance, created, **kwargs):
 
         all_tokens = FCMToken.objects.values_list('fcm_token', flat=True).distinct()
         list_tokens = list(all_tokens)
-        print(list_tokens)
+
+        if len(instance.record_title) < 40:
+            push_title = instance.record_title
+        else:
+            push_title = instance.record_title[0: 40] + '...'
+
+        if len(instance.record_body) < 150:
+            push_body = instance.record_body
+        else:
+            push_body = instance.record_body[0: 150] + '...'
+
         data_message = {
-            "title": "Mario",
-            "body": "great match!"
+            "title": push_title,
+            "body": push_body,
+            "id" : instance.id
         }
-        result = push_service.multiple_devices_data_message(registration_ids=list_tokens,
-                                                            data_message=data_message)
-        print(result)
+
+        push_service.multiple_devices_data_message(registration_ids=list_tokens,
+                                                   data_message=data_message)
 
 
 class FCMToken(models.Model):
