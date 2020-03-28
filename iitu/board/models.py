@@ -59,15 +59,24 @@ class UserAdmin(admin.ModelAdmin):
     exclude = ('password', "token")
 
 
+# todo set up proper title and message (consider its length) and send id
 @receiver(signals.post_save, sender=Record)
 def create_record(sender, instance, created, **kwargs):
     if created:
         push_service = FCMNotification(api_key=os.getenv('FCM_API_KEY'))
 
-        # todo test device
-        registration_id = "c0c_sqnxTxi21uj1Gznp-X:APA91bEO0ZZnsMadSidIwaoha5wl3s6vs-CmQTNuMp_j4lEXOLZZO8FvtoLxohrxJ4F3VwLZH_cz3o6Q57g0J94rYyLMiVU20Jrw5xEtSHnLi9i6yhei7oPPz1LTrhoZZT4yr79cOKeb"
-        message_title = "IITUBoard bitch!"
-        message_body = "New record created " + instance.record_title
-        result = push_service.notify_single_device(registration_id=registration_id, message_title=message_title,
-                                                   message_body=message_body)
+        all_tokens = FCMToken.objects.values_list('fcm_token', flat=True).distinct()
+        list_tokens = list(all_tokens)
+        print(list_tokens)
+        data_message = {
+            "title": "Mario",
+            "body": "great match!"
+        }
+        result = push_service.multiple_devices_data_message(registration_ids=list_tokens,
+                                                            data_message=data_message)
         print(result)
+
+
+class FCMToken(models.Model):
+    email = models.CharField(max_length=100)
+    fcm_token = models.CharField(max_length=1000)

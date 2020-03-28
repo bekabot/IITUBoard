@@ -11,7 +11,7 @@ from django.utils.crypto import get_random_string
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Record, User
+from .models import Record, User, FCMToken
 from .serializers import RecordSerializer
 
 
@@ -35,12 +35,14 @@ class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
+        fcm_token = request.data.get('fcmToken')
         data = User.objects.filter(email=email, password=password, is_active=True).values()
         if len(data) == 0:
             return Response({
                 "error": "THIS_USER_NOT_FOUND"
             })
         else:
+            FCMToken.objects.create(email=email, fcm_token=fcm_token)
             return JsonResponse(data[0])
 
 
