@@ -43,6 +43,10 @@ class Record(models.Model):
             return self.record_title[0: 69] + '...'
 
 
+class RecordAdmin(admin.ModelAdmin):
+    list_display = ('record_title', 'record_type')
+
+
 class User(models.Model):
     name = models.CharField(max_length=20, verbose_name="Имя")
     surname = models.CharField(max_length=20, verbose_name="Фамилия")
