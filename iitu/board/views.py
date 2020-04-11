@@ -18,12 +18,22 @@ from .serializers import RecordSerializer
 class BoardView(APIView):
     def get(self, request):
         token = request.query_params.get('token')
+        record_id = request.query_params.get('id')
         try:
             user = User.objects.get(token=token)
             if user.is_active:
                 records = Record.objects.all()
-                serializer = RecordSerializer(records, many=True)
-                return Response({"records": serializer.data})
+                if record_id is None:
+                    serializer = RecordSerializer(records, many=True)
+                    return Response({"records": serializer.data})
+                else:
+                    data = Record.objects.filter(id=record_id).values()
+                    if len(data) == 0:
+                        return Response({
+                            "message": "RECORD_NOT_FOUND"
+                        })
+                    else:
+                        return JsonResponse(data[0])
             else:
                 return Response({
                     "message": "USER_NOT_ACTIV"
@@ -34,7 +44,6 @@ class BoardView(APIView):
             })
 
     # TODO check if id gets generated after it is saved and check for user token
-    # TODO if null is not accepted by client, try this https://bit.ly/2Wj9gEq
     def post(self, request):
         record = request.data.get('record')
 
