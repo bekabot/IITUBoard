@@ -18,6 +18,8 @@ class RecordSerializer(serializers.Serializer):
     telegram = serializers.CharField(max_length=30)
     record_type = serializers.CharField(max_length=7)
     ads_category = serializers.CharField(max_length=20)
+    author = serializers.CharField(max_length=100)
+    created_at = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%S")
 
     def create(self, validated_data):
         return Record.objects.create(**validated_data)

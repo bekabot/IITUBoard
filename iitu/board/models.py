@@ -35,6 +35,8 @@ class Record(models.Model):
     record_type = models.CharField(choices=RECORD_TYPE_CHOICES, max_length=7, default='news', verbose_name="Тип записи")
     ads_category = models.CharField(blank=True, choices=ADS_CATEGORY, max_length=20,
                                     verbose_name="Категория (только для новостей)")
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    author = models.CharField(default="admin", max_length=100, verbose_name="Автор")
 
     def __str__(self):
         if len(self.record_title) < 70:
@@ -44,7 +46,7 @@ class Record(models.Model):
 
 
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ('record_title', 'record_type')
+    list_display = ('record_title', 'record_type', 'author')
 
 
 class User(models.Model):
