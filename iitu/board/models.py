@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.db import models
 from django.db.models import signals
 from django.dispatch import receiver
+from django_unixdatetimefield import UnixDateTimeField
 from pyfcm import FCMNotification
 
 RECORD_TYPE_CHOICES = (
@@ -35,7 +36,7 @@ class Record(models.Model):
     record_type = models.CharField(choices=RECORD_TYPE_CHOICES, max_length=7, default='news', verbose_name="Тип записи")
     ads_category = models.CharField(blank=True, choices=ADS_CATEGORY, max_length=20,
                                     verbose_name="Категория (только для новостей)")
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    created_at = UnixDateTimeField(auto_now_add=True, blank=True)
     author = models.CharField(default="admin", max_length=100, verbose_name="Автор")
 
     def __str__(self):
@@ -46,7 +47,8 @@ class Record(models.Model):
 
 
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ('record_title', 'record_type', 'author')
+    exclude = ("created_at", "author")
+    list_display = ('record_title', 'record_type', 'author', 'created_at')
 
 
 class User(models.Model):

@@ -27,13 +27,9 @@ class BoardView(APIView):
                     serializer = RecordSerializer(records, many=True)
                     return Response({"records": serializer.data})
                 else:
-                    data = Record.objects.filter(id=record_id).values()
-                    if len(data) == 0:
-                        return Response({
-                            "message": "RECORD_NOT_FOUND"
-                        })
-                    else:
-                        return JsonResponse(data[0])
+                    record = Record.objects.get(id=record_id)
+                    serializer = RecordSerializer(record)
+                    return Response({"record": serializer.data})
             else:
                 return Response({
                     "message": "USER_NOT_ACTIV"
@@ -41,6 +37,10 @@ class BoardView(APIView):
         except User.DoesNotExist:
             return Response({
                 "message": "USER_NOT_FOUND"
+            })
+        except Record.DoesNotExist:
+            return Response({
+                "message": "RECORD_NOT_FOUND"
             })
 
     # TODO check if id gets generated after it is saved and check for user token

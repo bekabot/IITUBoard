@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="django.db.models.fields.CharField.*" />
+          <option value="iitu.board.serializers.TimestampField" />
         </list>
       </option>
     </inspection_tool>
