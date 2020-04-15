@@ -24,9 +24,9 @@ ADS_CATEGORY = (
 class Record(models.Model):
     record_title = models.TextField(max_length=200, verbose_name="Заголовок", default="")
     record_body = models.TextField(max_length=10000, verbose_name="Текст", default="")
-    image1 = models.ImageField(blank=True, upload_to="images", verbose_name="Картинка1")
-    image2 = models.ImageField(blank=True, upload_to="images", verbose_name="Картинка2")
-    image3 = models.ImageField(blank=True, upload_to="images", verbose_name="Картинка3")
+    image1 = models.ImageField(blank=True, upload_to="images", verbose_name="Картинка1 (не обязательно)")
+    image2 = models.ImageField(blank=True, upload_to="images", verbose_name="Картинка2 (не обязательно)")
+    image3 = models.ImageField(blank=True, upload_to="images", verbose_name="Картинка3 (не обязательно)")
     phone = models.CharField(blank=True, max_length=11, verbose_name="Контактный телефон (не обязательно)")
     email = models.CharField(blank=True, max_length=40, verbose_name="Контактный email (не обязательно)")
     whatsapp = models.CharField(blank=True, max_length=11, verbose_name="WhatsApp (не обяза тельно)")
@@ -48,7 +48,7 @@ class Record(models.Model):
 
 class RecordAdmin(admin.ModelAdmin):
     exclude = ("created_at", "author")
-    list_display = ('record_title', 'record_type', 'author', 'created_at')
+    list_display = ('record_title', 'record_type', 'author')
 
 
 class User(models.Model):
