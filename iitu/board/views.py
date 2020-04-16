@@ -1,4 +1,5 @@
 import hashlib
+import json
 import os
 import smtplib
 from email.header import Header
@@ -43,14 +44,49 @@ class BoardView(APIView):
                 "message": "RECORD_NOT_FOUND"
             })
 
-    # TODO check if id gets generated after it is saved and check for user token
+    # TODO check for user token
+    # TODO handle index out of range exception
+    # TODO check if images are null (not uploaded)
     def post(self, request):
         record = request.data.get('record')
 
-        serializer = RecordSerializer(data=record)
-        if serializer.is_valid(raise_exception=True):
-            record_new = serializer.save()
-        return Response({"success": "Record '{}' created successfully".format(record_new.text)})
+        record_dict = json.loads(record)
+
+        record_title = record_dict.get('title', "")
+        record_body = record_dict.get('body', "")
+        image1 = request.FILES.getlist('file')[0]
+        image2 = request.FILES.getlist('file')[1]
+        image3 = request.FILES.getlist('file')[2]
+        phone = record_dict.get('phone', "")
+        email = record_dict.get('email', "")
+        whatsapp = record_dict.get('whatsapp', "")
+        instagram = record_dict.get('instagram', "")
+        vk = record_dict.get('vk', "")
+        telegram = record_dict.get('telegram ', "")
+        record_type = record_dict.get('record_type', "news")
+        author = record_dict.get('author', "")
+
+        new_record = Record()
+        new_record.record_title = record_title
+        new_record.record_body = record_body
+        new_record.image1 = image1
+        new_record.image2 = image2
+        new_record.image3 = image3
+        new_record.phone = phone
+        new_record.email = email
+        new_record.whatsapp = whatsapp
+        new_record.instagram = instagram
+        new_record.vk = vk
+        new_record.telegram = telegram
+        new_record.record_type = record_type
+        new_record.author = author
+
+        try:
+            new_record.save()
+        except OSError:
+            print("shit happens")  # todo handle properly
+
+        return Response({"OK"})
 
 
 class LoginView(APIView):
