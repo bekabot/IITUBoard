@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="creation date as unix time stamp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iitu/board/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iitu/board/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/board/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +15,20 @@
     <favorites_list name="IITUBoard" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,8 +96,8 @@
         <option value="$PROJECT_DIR$/iitu/board/timestamptfields.py" />
         <option value="$PROJECT_DIR$/iitu/board/serializers.py" />
         <option value="$PROJECT_DIR$/iitu/iitu/settings.py" />
-        <option value="$PROJECT_DIR$/iitu/board/views.py" />
         <option value="$PROJECT_DIR$/iitu/board/timestamptfield.py" />
+        <option value="$PROJECT_DIR$/iitu/board/views.py" />
         <option value="$PROJECT_DIR$/iitu/board/models.py" />
       </list>
     </option>
@@ -517,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586768409753</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="image form title changed">
+      <created>1586960669717</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1586960669717</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -531,6 +551,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="794" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5714286" visible="true" weight="0.24876674" />
       <window_info id="Structure" order="1" sideWeight="0.4301887" side_tool="true" weight="0.24876674" />
@@ -541,9 +562,9 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40651557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.49716714" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.81054133" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.7167139" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.3931624" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" visible="true" weight="0.23361823" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.65099716" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -611,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="email verification configured" />
     <MESSAGE value="change rest renderer" />
     <MESSAGE value="upload and download images setup" />
     <MESSAGE value="attempt to work with static files on heroku" />
@@ -636,7 +656,8 @@
     <MESSAGE value="get record by id" />
     <MESSAGE value="add author and created_date fields to record model" />
     <MESSAGE value="creation date as unix time stamp" />
-    <option name="LAST_COMMIT_MESSAGE" value="creation date as unix time stamp" />
+    <MESSAGE value="image form title changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="image form title changed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/iitu/iitu/models.py" />
@@ -937,15 +958,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iitu/board/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        <state relative-caret-position="239">
+          <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iitu/board/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        <state relative-caret-position="253">
+          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

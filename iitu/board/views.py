@@ -64,7 +64,9 @@ class LoginView(APIView):
                 "error": "THIS_USER_NOT_FOUND"
             })
         else:
-            FCMToken.objects.create(email=email, fcm_token=fcm_token)
+            fcm_data = FCMToken.objects.filter(fcm_token=fcm_token)
+            if len(fcm_data) == 0 and fcm_token is not None and len(fcm_token) > 0:
+                FCMToken.objects.create(email=email, fcm_token=fcm_token)
             return JsonResponse(data[0])
 
 
