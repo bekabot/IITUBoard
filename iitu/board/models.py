@@ -38,6 +38,7 @@ class Record(models.Model):
                                     verbose_name="Категория (только для новостей)")
     created_at = UnixDateTimeField(auto_now_add=True, blank=True)
     author = models.CharField(default="admin", max_length=100, verbose_name="Автор")
+    author_email = models.CharField(blank=True, max_length=40)
 
     def __str__(self):
         if len(self.record_title) < 70:
@@ -47,7 +48,7 @@ class Record(models.Model):
 
 
 class RecordAdmin(admin.ModelAdmin):
-    exclude = ("created_at", "author")
+    exclude = ("created_at", "author", "author_email")
     list_display = ('record_title', 'record_type', 'author')
 
 
@@ -72,7 +73,8 @@ def create_record(sender, instance, created, **kwargs):
     if created:
         push_service = FCMNotification(api_key=os.getenv('FCM_API_KEY'))
 
-        all_tokens = FCMToken.objects.values_list('fcm_token', flat=True).distinct()
+        author_email = instance.author_email
+        all_tokens = FCMToken.objects.exclude(email=author_email).values_list('fcm_token', flat=True).distinct()
         list_tokens = list(all_tokens)
 
         if len(instance.record_title) < 40:

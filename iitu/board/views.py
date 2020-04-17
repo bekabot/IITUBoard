@@ -69,6 +69,7 @@ class BoardView(APIView):
                 telegram = request.data.get('telegram', "")
                 record_type = request.data.get('record_type', "news")
                 author = request.data.get('author', "")
+                author_email = request.data.get('authorEmail', "")
 
                 new_record = Record()
                 new_record.record_title = record_title
@@ -81,6 +82,7 @@ class BoardView(APIView):
                 new_record.telegram = telegram
                 new_record.record_type = record_type
                 new_record.author = author
+                new_record.author_email = author_email
 
                 try:
                     new_record.save()
@@ -118,6 +120,7 @@ class BoardView(APIView):
                 telegram = record_dict.get('telegram', "")
                 record_type = record_dict.get('record_type', "news")
                 author = record_dict.get('author', "")
+                author_email = record_dict.get('authorEmail', "")
 
                 new_record = Record()
                 new_record.record_title = record_title
@@ -149,6 +152,7 @@ class BoardView(APIView):
                 new_record.telegram = telegram
                 new_record.record_type = record_type
                 new_record.author = author
+                new_record.author_email = author_email
 
                 try:
                     new_record.save()
