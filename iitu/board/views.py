@@ -44,49 +44,130 @@ class BoardView(APIView):
                 "message": "RECORD_NOT_FOUND"
             })
 
-    # TODO check for user token
-    # TODO handle index out of range exception
-    # TODO check if images are null (not uploaded)
     def post(self, request):
-        record = request.data.get('record')
-
-        record_dict = json.loads(record)
-
-        record_title = record_dict.get('title', "")
-        record_body = record_dict.get('body', "")
-        image1 = request.FILES.getlist('file')[0]
-        image2 = request.FILES.getlist('file')[1]
-        image3 = request.FILES.getlist('file')[2]
-        phone = record_dict.get('phone', "")
-        email = record_dict.get('email', "")
-        whatsapp = record_dict.get('whatsapp', "")
-        instagram = record_dict.get('instagram', "")
-        vk = record_dict.get('vk', "")
-        telegram = record_dict.get('telegram ', "")
-        record_type = record_dict.get('record_type', "news")
-        author = record_dict.get('author', "")
-
-        new_record = Record()
-        new_record.record_title = record_title
-        new_record.record_body = record_body
-        new_record.image1 = image1
-        new_record.image2 = image2
-        new_record.image3 = image3
-        new_record.phone = phone
-        new_record.email = email
-        new_record.whatsapp = whatsapp
-        new_record.instagram = instagram
-        new_record.vk = vk
-        new_record.telegram = telegram
-        new_record.record_type = record_type
-        new_record.author = author
 
         try:
-            new_record.save()
-        except OSError:
-            print("shit happens")  # todo handle properly
+            record = request.data.get('record')
+            return self.handle_request_with_images(record, request)
 
-        return Response({"OK"})
+        except TypeError:
+            return self.handle_request_without_images(request)
+
+    def handle_request_without_images(self, request):
+        try:
+            token = request.data.get('token')
+            user = User.objects.get(token=token)
+            if user.is_active:
+
+                record_title = request.data.get('title', "")
+                record_body = request.data.get('body', "")
+                phone = request.data.get('phone', "")
+                email = request.data.get('email', "")
+                whatsapp = request.data.get('whatsapp', "")
+                instagram = request.data.get('instagram', "")
+                vk = request.data.get('vk', "")
+                telegram = request.data.get('telegram', "")
+                record_type = request.data.get('record_type', "news")
+                author = request.data.get('author', "")
+
+                new_record = Record()
+                new_record.record_title = record_title
+                new_record.record_body = record_body
+                new_record.phone = phone
+                new_record.email = email
+                new_record.whatsapp = whatsapp
+                new_record.instagram = instagram
+                new_record.vk = vk
+                new_record.telegram = telegram
+                new_record.record_type = record_type
+                new_record.author = author
+
+                try:
+                    new_record.save()
+                except OSError:
+                    return Response({
+                        "message": "RECORD_NOT_CREATED"
+                    })
+
+                return Response({
+                    "message": "RECORD_CREATED"
+                })
+            else:
+                return Response({
+                    "message": "USER_NOT_ACTIV"
+                })
+        except User.DoesNotExist:
+            return Response({
+                "message": "USER_NOT_FOUND"
+            })
+
+    def handle_request_with_images(self, record, request):
+        record_dict = json.loads(record)
+        token = record_dict.get('token')
+        try:
+            user = User.objects.get(token=token)
+            if user.is_active:
+
+                record_title = record_dict.get('title', "")
+                record_body = record_dict.get('body', "")
+                phone = record_dict.get('phone', "")
+                email = record_dict.get('email', "")
+                whatsapp = record_dict.get('whatsapp', "")
+                instagram = record_dict.get('instagram', "")
+                vk = record_dict.get('vk', "")
+                telegram = record_dict.get('telegram', "")
+                record_type = record_dict.get('record_type', "news")
+                author = record_dict.get('author', "")
+
+                new_record = Record()
+                new_record.record_title = record_title
+                new_record.record_body = record_body
+
+                try:
+                    image1 = request.FILES.getlist('file')[0]
+                    new_record.image1 = image1
+                except:
+                    pass
+
+                try:
+                    image2 = request.FILES.getlist('file')[1]
+                    new_record.image2 = image2
+                except:
+                    pass
+
+                try:
+                    image3 = request.FILES.getlist('file')[2]
+                    new_record.image3 = image3
+                except:
+                    pass
+
+                new_record.phone = phone
+                new_record.email = email
+                new_record.whatsapp = whatsapp
+                new_record.instagram = instagram
+                new_record.vk = vk
+                new_record.telegram = telegram
+                new_record.record_type = record_type
+                new_record.author = author
+
+                try:
+                    new_record.save()
+                except OSError:
+                    return Response({
+                        "message": "RECORD_NOT_CREATED"
+                    })
+
+                return Response({
+                    "message": "RECORD_CREATED"
+                })
+            else:
+                return Response({
+                    "message": "USER_NOT_ACTIV"
+                })
+        except User.DoesNotExist:
+            return Response({
+                "message": "USER_NOT_FOUND"
+            })
 
 
 class LoginView(APIView):
