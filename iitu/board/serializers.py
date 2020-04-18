@@ -20,6 +20,7 @@ class RecordSerializer(serializers.Serializer):
     record_type = serializers.CharField(max_length=7)
     ads_category = serializers.CharField(max_length=20)
     author = serializers.CharField(max_length=100)
+    author_email = serializers.CharField(max_length=40)
     created_at = TimestampField()
 
     def create(self, validated_data):

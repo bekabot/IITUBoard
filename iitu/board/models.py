@@ -90,7 +90,8 @@ def create_record(sender, instance, created, **kwargs):
         data_message = {
             "title": push_title,
             "body": push_body,
-            "id": instance.id
+            "id": instance.id,
+            "type": instance.record_type
         }
 
         push_service.multiple_devices_data_message(registration_ids=list_tokens,
