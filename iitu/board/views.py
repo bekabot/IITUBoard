@@ -17,6 +17,31 @@ from .serializers import RecordSerializer
 
 
 class BoardView(APIView):
+
+    def delete(self, request):
+        token = request.query_params.get('token')
+        record_id = request.query_params.get('id')
+        try:
+            user = User.objects.get(token=token)
+            if user.is_active:
+                if record_id is None:
+                    return Response({
+                        "message": "RECORD_NOT_FOUND"
+                    })
+                else:
+                    Record.objects.get(id=record_id).delete()
+                    return Response({
+                        "message": "RECORD_DELETED"
+                    })
+            else:
+                return Response({
+                    "message": "USER_NOT_ACTIV"
+                })
+        except User.DoesNotExist:
+            return Response({
+                "message": "USER_NOT_FOUND"
+            })
+
     def get(self, request):
         token = request.query_params.get('token')
         record_id = request.query_params.get('id')
