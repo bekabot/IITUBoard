@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="285">
+              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
               <folding>
                 <element signature="e#305#314#0" expanded="true" />
               </folding>
@@ -221,27 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583326148087</updated>
-    </task>
-    <task id="LOCAL-00006" summary="update procfile">
-      <created>1583330978603</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1583330978603</updated>
-    </task>
-    <task id="LOCAL-00007" summary="update procfile">
-      <created>1583331280029</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1583331280029</updated>
-    </task>
-    <task id="LOCAL-00008" summary="update procfile">
-      <created>1583331500779</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1583331500779</updated>
     </task>
     <task id="LOCAL-00009" summary="add admin panel &amp; setup get &amp; post requests">
       <created>1583567789746</created>
@@ -565,7 +544,28 @@
       <option name="project" value="LOCAL" />
       <updated>1587383282075</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="attempt to deploy django admin in prod">
+      <created>1587384577726</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1587384577727</updated>
+    </task>
+    <task id="LOCAL-00056" summary="attempt to deploy django admin in prod">
+      <created>1587384728245</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1587384728245</updated>
+    </task>
+    <task id="LOCAL-00057" summary="attempt to deploy django admin in prod">
+      <created>1587385071897</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1587385071897</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TodoView">
@@ -591,8 +591,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.5826211" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.6139601" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4989429" visible="true" weight="0.502849" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.5769231" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4989429" visible="true" weight="0.21367522" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010571" side_tool="true" weight="0.14814815" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.65099716" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -670,7 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="record admin page configured" />
     <MESSAGE value="restructure record and user models" />
     <MESSAGE value="send email refactored" />
     <MESSAGE value="password restoration configured" />
@@ -695,7 +694,8 @@
     <MESSAGE value="record DELETE request configured" />
     <MESSAGE value="complaints request configured" />
     <MESSAGE value="set debug false in production" />
-    <option name="LAST_COMMIT_MESSAGE" value="set debug false in production" />
+    <MESSAGE value="attempt to deploy django admin in prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempt to deploy django admin in prod" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/manager.py">
@@ -1021,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state relative-caret-position="285">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
           <folding>
             <element signature="e#305#314#0" expanded="true" />
           </folding>
