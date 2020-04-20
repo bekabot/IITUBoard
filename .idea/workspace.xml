@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91fbe677-ba7a-43c0-ace7-68ea279c77b2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iitu/iitu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/iitu/iitu/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,23 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/iitu/board/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="238" column="28" selection-start-line="238" selection-start-column="28" selection-end-line="238" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="40" />
+            <state relative-caret-position="164">
+              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding>
                 <element signature="e#305#314#0" expanded="true" />
               </folding>
@@ -50,9 +39,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>name</find>
-      <find>MAIL_NOT_FOUND</find>
-      <find>save</find>
       <find>objects</find>
       <find>update</find>
       <find>auth</find>
@@ -80,6 +66,9 @@
       <find>host</find>
       <find>len(</find>
       <find>delete</find>
+      <find>Debug</find>
+      <find>debug</find>
+      <find>DEBUG</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,12 +93,12 @@
         <option value="$PROJECT_DIR$/iitu/board/admin.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/iitu/board/timestamptfields.py" />
-        <option value="$PROJECT_DIR$/iitu/iitu/settings.py" />
         <option value="$PROJECT_DIR$/iitu/board/timestamptfield.py" />
         <option value="$PROJECT_DIR$/iitu/board/serializers.py" />
         <option value="$PROJECT_DIR$/iitu/board/models.py" />
         <option value="$PROJECT_DIR$/iitu/board/urls.py" />
         <option value="$PROJECT_DIR$/iitu/board/views.py" />
+        <option value="$PROJECT_DIR$/iitu/iitu/settings.py" />
       </list>
     </option>
   </component>
@@ -232,20 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583326148087</updated>
-    </task>
-    <task id="LOCAL-00004" summary="update procfile">
-      <created>1583330122126</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1583330122126</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update procfile">
-      <created>1583330806380</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1583330806380</updated>
     </task>
     <task id="LOCAL-00006" summary="update procfile">
       <created>1583330978603</created>
@@ -576,7 +551,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587362204915</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="set debug false in production">
+      <created>1587382946986</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1587382946988</updated>
+    </task>
+    <task id="LOCAL-00054" summary="set debug false in production">
+      <created>1587383282075</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1587383282075</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
@@ -590,6 +579,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="794" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5714286" visible="true" weight="0.24876674" />
       <window_info id="Structure" order="1" sideWeight="0.4301887" side_tool="true" weight="0.24876674" />
@@ -601,8 +591,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49964765" weight="0.5826211" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.71652424" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4989429" visible="true" weight="0.2834758" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.6139601" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4989429" visible="true" weight="0.502849" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010571" side_tool="true" weight="0.14814815" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.65099716" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -628,6 +618,16 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -670,7 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="amazon s3 configured" />
     <MESSAGE value="record admin page configured" />
     <MESSAGE value="restructure record and user models" />
     <MESSAGE value="send email refactored" />
@@ -695,7 +694,8 @@
     <MESSAGE value="send record type in push" />
     <MESSAGE value="record DELETE request configured" />
     <MESSAGE value="complaints request configured" />
-    <option name="LAST_COMMIT_MESSAGE" value="complaints request configured" />
+    <MESSAGE value="set debug false in production" />
+    <option name="LAST_COMMIT_MESSAGE" value="set debug false in production" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/manager.py">
@@ -1021,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iitu/iitu/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="40" />
+        <state relative-caret-position="164">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="e#305#314#0" expanded="true" />
           </folding>
