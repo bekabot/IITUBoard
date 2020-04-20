@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import BoardView, LoginView, AuthView, VerificationView, RestoreView
+from .views import BoardView, LoginView, AuthView, VerificationView, RestoreView, ComplaintsView
 
 app_name = "board"
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('auth/', AuthView.as_view()),
     path('verify/', VerificationView.as_view()),
     path('restore/', RestoreView.as_view()),
+    path('complaints/', ComplaintsView.as_view()),
 ]

@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 from uuid import uuid4
 
 from django.conf import settings
+from django.contrib.auth import models
 from django.http import JsonResponse, HttpResponse
 from django.utils.crypto import get_random_string
 from rest_framework.response import Response
@@ -313,4 +314,48 @@ class RestoreView(APIView):
         except User.DoesNotExist:
             return Response({
                 "message": "MAIL_NOT_FOUND"
+            })
+
+
+class ComplaintsView(APIView):
+    def post(self, request):
+        token = request.query_params.get('token')
+        record_id = request.query_params.get('id')
+        text = request.query_params.get('text')
+
+        try:
+            user = User.objects.get(token=token)
+            if user.is_active:
+                if record_id is None:
+                    return Response({
+                        "message": "RECORD_NOT_FOUND"
+                    })
+                else:
+                    admin_emails = models.User.objects.filter(is_superuser=True).values_list('email', flat=True)
+                    for email in admin_emails:
+                        if settings.DEBUG:
+                            host = "http://127.0.0.1:8000"
+                        else:
+                            host = "http://iitu-board.herokuapp.com"
+
+                        message_body = "Получена жалоба на одну из записей от " + user.name + " " + user.surname + "(" + user.email + ")"
+
+                        if len(text) > 0:
+                            message_body = message_body + "\nТекст жалобы: \n" + "\"" + text + "\"" + "\n"
+
+                        record_link = host + "/board/record/" + record_id + "/change/"
+                        message_body = message_body + "\nСсылка на исходную запись: " + record_link
+
+                        send_mail(email, message_body, "Жалоба в IITUBoard")
+
+                    return Response({
+                        "message": "COMPLAINT_CONFIRMED"
+                    })
+            else:
+                return Response({
+                    "message": "USER_NOT_ACTIV"
+                })
+        except User.DoesNotExist:
+            return Response({
+                "message": "USER_NOT_FOUND"
             })
