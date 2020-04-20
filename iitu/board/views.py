@@ -223,10 +223,10 @@ class AuthView(APIView):
         surname = request.data.get('surname')
         email = request.data.get('email')
         password = request.data.get('password')
-        if settings.DEBUG:
-            host = "http://127.0.0.1:8000"
-        else:
-            host = "http://iitu-board.herokuapp.com"
+        # if settings.DEBUG:
+        #     host = "http://127.0.0.1:8000"
+        # else:
+        host = "http://iitu-board.herokuapp.com"
 
         mail_header = "Подтверждение почтового ящика"
 
@@ -333,10 +333,10 @@ class ComplaintsView(APIView):
                 else:
                     admin_emails = models.User.objects.filter(is_superuser=True).values_list('email', flat=True)
                     for email in admin_emails:
-                        if settings.DEBUG:
-                            host = "http://127.0.0.1:8000"
-                        else:
-                            host = "http://iitu-board.herokuapp.com"
+                        # if settings.DEBUG:
+                        #     host = "http://127.0.0.1:8000"
+                        # else:
+                        host = "http://iitu-board.herokuapp.com"
 
                         message_body = "Получена жалоба на одну из записей от " + user.name + " " + user.surname + "(" + user.email + ")"
 
