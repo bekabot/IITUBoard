@@ -91,6 +91,7 @@ class BoardView(APIView):
                 whatsapp = request.data.get('whatsapp', "")
                 telegram = request.data.get('telegram', "")
                 record_type = request.data.get('record_type', "news")
+                ads_category = request.data.get('ads_category', "")
                 author = request.data.get('author', "")
                 author_email = request.data.get('authorEmail', "")
 
@@ -102,6 +103,7 @@ class BoardView(APIView):
                 new_record.whatsapp = whatsapp
                 new_record.telegram = telegram
                 new_record.record_type = record_type
+                new_record.ads_category = ads_category
                 new_record.author = author
                 new_record.author_email = author_email
 
@@ -138,6 +140,7 @@ class BoardView(APIView):
                 whatsapp = record_dict.get('whatsapp', "")
                 telegram = record_dict.get('telegram', "")
                 record_type = record_dict.get('record_type', "news")
+                ads_category = request.data.get('ads_category', "")
                 author = record_dict.get('author', "")
                 author_email = record_dict.get('authorEmail', "")
 
@@ -170,6 +173,7 @@ class BoardView(APIView):
                 new_record.record_type = record_type
                 new_record.author = author
                 new_record.author_email = author_email
+                new_record.ads_category = ads_category
 
                 try:
                     new_record.save()
