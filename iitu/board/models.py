@@ -14,10 +14,15 @@ RECORD_TYPE_CHOICES = (
 )
 
 ADS_CATEGORY = (
-    ('sport', 'Спорт'),
-    ('it', 'IT'),
-    ('study', 'Учеба',),
-    ('others', 'Прочее',),
+    ('services', 'Услуги'),
+    ('study', 'Учеба'),
+    ('lost_and_found', 'Бюро находок',),
+    ('sport', 'Спорт',),
+    ('hobby', 'Хобби',),
+    ('sells', 'Продам',),
+    ('exchange_free', 'Обмен/Отдам даром',),
+    ('rent', 'Аренда жилья',),
+    ('mate_search', 'Поиск соседа',),
 )
 
 
@@ -30,12 +35,10 @@ class Record(models.Model):
     phone = models.CharField(blank=True, max_length=11, verbose_name="Контактный телефон (не обязательно)")
     email = models.CharField(blank=True, max_length=40, verbose_name="Контактный email (не обязательно)")
     whatsapp = models.CharField(blank=True, max_length=11, verbose_name="WhatsApp (не обяза тельно)")
-    instagram = models.CharField(blank=True, max_length=30, verbose_name="Instagram логин (не обязательно)")
-    vk = models.CharField(blank=True, max_length=30, verbose_name="VK логин/id (не обязательно)")
     telegram = models.CharField(blank=True, max_length=30, verbose_name="Telegram логин (не обязательно)")
     record_type = models.CharField(choices=RECORD_TYPE_CHOICES, max_length=7, default='news', verbose_name="Тип записи")
     ads_category = models.CharField(blank=True, choices=ADS_CATEGORY, max_length=20,
-                                    verbose_name="Категория (только для новостей)")
+                                    verbose_name="Категория (только для объявлений)")
     created_at = UnixDateTimeField(auto_now_add=True, blank=True)
     author = models.CharField(default="admin", max_length=100, verbose_name="Автор")
     author_email = models.CharField(blank=True, max_length=40)

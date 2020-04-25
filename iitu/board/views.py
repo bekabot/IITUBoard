@@ -6,7 +6,6 @@ from email.header import Header
 from email.mime.text import MIMEText
 from uuid import uuid4
 
-from django.conf import settings
 from django.contrib.auth import models
 from django.http import JsonResponse, HttpResponse
 from django.utils.crypto import get_random_string
@@ -90,8 +89,6 @@ class BoardView(APIView):
                 phone = request.data.get('phone', "")
                 email = request.data.get('email', "")
                 whatsapp = request.data.get('whatsapp', "")
-                instagram = request.data.get('instagram', "")
-                vk = request.data.get('vk', "")
                 telegram = request.data.get('telegram', "")
                 record_type = request.data.get('record_type', "news")
                 author = request.data.get('author', "")
@@ -103,8 +100,6 @@ class BoardView(APIView):
                 new_record.phone = phone
                 new_record.email = email
                 new_record.whatsapp = whatsapp
-                new_record.instagram = instagram
-                new_record.vk = vk
                 new_record.telegram = telegram
                 new_record.record_type = record_type
                 new_record.author = author
@@ -141,8 +136,6 @@ class BoardView(APIView):
                 phone = record_dict.get('phone', "")
                 email = record_dict.get('email', "")
                 whatsapp = record_dict.get('whatsapp', "")
-                instagram = record_dict.get('instagram', "")
-                vk = record_dict.get('vk', "")
                 telegram = record_dict.get('telegram', "")
                 record_type = record_dict.get('record_type', "news")
                 author = record_dict.get('author', "")
@@ -173,8 +166,6 @@ class BoardView(APIView):
                 new_record.phone = phone
                 new_record.email = email
                 new_record.whatsapp = whatsapp
-                new_record.instagram = instagram
-                new_record.vk = vk
                 new_record.telegram = telegram
                 new_record.record_type = record_type
                 new_record.author = author

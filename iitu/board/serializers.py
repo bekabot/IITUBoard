@@ -14,8 +14,6 @@ class RecordSerializer(serializers.Serializer):
     phone = serializers.CharField(max_length=11)
     email = serializers.CharField(max_length=40)
     whatsapp = serializers.CharField(max_length=11)
-    instagram = serializers.CharField(max_length=30)
-    vk = serializers.CharField(max_length=30)
     telegram = serializers.CharField(max_length=30)
     record_type = serializers.CharField(max_length=7)
     ads_category = serializers.CharField(max_length=20)
